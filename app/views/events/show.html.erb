@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+<%= render @event %>
+<di>
+  <%= link_to "Edit this event", edit_event_path(@event) %> |
+  <%= link_to "Back to events", events_path %>
+  <%= button_to "Destroy this event", @event, method: :delete %>
+</div>
+<div>
+  <%if @event.picture_event.attached?%>
+    <%= image_tag @event.picture_event, alt: 'picture_event' %>
+  <%else%>
+    <p>=== Il n'y a pas encore d'image lié à cet evenement ===</p>
+  <%end%>
+  <h3>Changer d'image ?</h3>
+  <%= form_tag event_picture_events_path(@event), multipart: true do %>
+    <%= file_field_tag :picture_event %>
+    <%= submit_tag "mettre à jour" %>
+  <% end %>
+</di>>>>
